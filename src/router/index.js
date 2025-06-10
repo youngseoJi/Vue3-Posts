@@ -20,10 +20,12 @@ const routes = [
 	},
 	{
 		path: "/posts",
+		name: "PostList",
 		component: PostListView,
 	},
 	{
 		path: "/posts/create",
+		name: "PostCreate",
 		component: PostCreateView,
 	},
 	// 동적 라우팅
@@ -33,10 +35,12 @@ const routes = [
 	// 쿼리 또는 hash는 라우터 설정하지 않는다.
 	{
 		path: "/posts/:id",
+		name: "PostDetail",
 		component: PostDetailView,
 	},
 	{
 		path: "/posts/:id/edit",
+		name: "PostEdit",
 		component: PostEditView,
 	},
 ];

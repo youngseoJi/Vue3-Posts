@@ -4,23 +4,16 @@
 		<hr class="my-4" />
 		<form action="">
 			<div class="mb-3">
-				<label for="exampleFormControlInput1" class="form-label">제목</label>
-				<input
-					type="email"
-					class="form-control"
-					id="exampleFormControlInput1"
-					placeholder="name@example.com"
-				/>
+				<label for="title" class="form-label">제목</label>
+				<input type="text" class="form-control" id="title" />
 			</div>
 			<div class="mb-3">
-				<label for="exampleFormControlTextarea1" class="form-label"
-					>Example textarea</label
-				>
-				<textarea
-					class="form-control"
-					id="exampleFormControlTextarea1"
-					rows="3"
-				></textarea>
+				<label for="content" class="form-label">내용</label>
+				<textarea class="form-control" id="content" rows="3"></textarea>
+			</div>
+			<div class="pt-4">
+				<button type="button" class="btn btn-outline-dark me-2">목록</button>
+				<button class="btn btn-primary">저장</button>
 			</div>
 		</form>
 	</div>

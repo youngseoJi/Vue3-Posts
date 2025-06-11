@@ -24,6 +24,7 @@ module.exports = {
 				trailingComma: "all",
 				printWidth: 80,
 				bracketSpacing: true,
+				objectCurlyNewline: true,
 				arrowParens: "avoid",
 				endOfLine: "auto", // 한줄 추가
 			},

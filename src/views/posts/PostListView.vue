@@ -12,11 +12,17 @@
 				></PostItem>
 			</div>
 		</div>
+		<hr class="my-4" />
+		<PostDetailView :id="1" />
+
+		<!-- <router-view></router-view> -->
+		<!-- <PostDetailView></PostDetailView> -->
 	</div>
 </template>
 
 <script setup>
 import PostItem from "@/components/posts/PostItem.vue";
+import PostDetailView from "./PostDetailView.vue";
 import { ref } from "vue";
 import { getPosts } from "@/api/posts";
 import { useRouter } from "vue-router";
@@ -29,6 +35,7 @@ const fetchPosts = () => {
 };
 
 fetchPosts();
+console.log("posts.value", posts.value);
 
 const goPage = id => {
 	// router.push(`posts/${id}`);

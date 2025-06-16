@@ -7,7 +7,12 @@ import PostDetailView from "@/views/posts/PostDetailView.vue";
 import PostEditView from "@/views/posts/PostEditView.vue";
 import PostListView from "@/views/posts/PostListView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
+import NestedView from "@/views/nasted/NestedView.vue";
 
+import NestedOneView from "@/views/nasted/NestedOneView.vue";
+
+import NestedTwoView from "@/views/nasted/NestedTwoView.vue";
+import NestedHomeView from "@/views/nasted/NestedHomeView.vue";
 const routes = [
 	{
 		path: "/",
@@ -38,11 +43,49 @@ const routes = [
 		path: "/posts/:id",
 		name: "PostDetail",
 		component: PostDetailView,
+		// 라우트 파라미터를 컴포넌트의 props로 전달하는 방법
+		// 1. props: true
+		// route.params가 그대로 props로 전달됨
+		// 항상 문자열(string)로 전달됨 (타입 변환 불가)
+		// props: true,
+
+		// 2. props: route => ({ ... })  객체 형태로 설정
+		// 가공한 값(예: 숫자형으로 변환된 id)을 props로 전달 가능
+		props: route => ({
+			// 문자열 형태로 전달되므로 숫자형으로 변환
+			id: parseInt(route.params.id),
+		}),
 	},
 	{
 		path: "/posts/:id/edit",
 		name: "PostEdit",
 		component: PostEditView,
+	},
+	{
+		path: "/nested",
+		name: "Nested",
+		component: NestedView,
+		// 중첩 라우트 설정
+		// 중첩 라우트는 부모 컴포넌트에 <router-view>를 추가
+		children: [
+			{
+				path: "", // 빈 문자열은 부모 경로와 동일
+				name: "NestedHone",
+				component: NestedHomeView,
+			},
+			{
+				// /nested/one
+				// path에 /를 붙이면 절대 경로가 되므로 붙이기 x
+				path: "one",
+				name: "NestedOne",
+				component: NestedOneView,
+			},
+			{
+				path: "two",
+				name: "NestedTwo",
+				component: NestedTwoView,
+			},
+		],
 	},
 	{ path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundView },
 ];

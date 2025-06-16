@@ -11,3 +11,9 @@ const posts = [
 export function getPosts() {
 	return posts;
 }
+
+export function getPostById(id) {
+	//  const postId = parseInt(id);
+	// 	return posts.find(post => post.id === postId);
+	return posts.find(post => post.id === id);
+}

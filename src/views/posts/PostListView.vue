@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		<hr class="my-4" />
-		<PostDetailView :id="1" />
+		<AppCard> <PostDetailView :id="1" /> </AppCard>
 
 		<!-- <router-view></router-view> -->
 		<!-- <PostDetailView></PostDetailView> -->
@@ -23,6 +23,8 @@
 <script setup>
 import PostItem from "@/components/posts/PostItem.vue";
 import PostDetailView from "./PostDetailView.vue";
+import AppCard from "@/components/AppCard.vue";
+
 import { ref } from "vue";
 import { getPosts } from "@/api/posts";
 import { useRouter } from "vue-router";

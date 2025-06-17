@@ -1,3 +1,5 @@
+<!-- 공통 템플릿 화면 생성 -->
+
 <template>
 	<div class="card">
 		<div v-if="$slots.header" class="card-header"></div>

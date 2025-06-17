@@ -1,4 +1,8 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+	createRouter,
+	createWebHashHistory,
+	// createWebHistory,
+} from "vue-router";
 
 import AboutView from "@/views/AboutView.vue";
 import HomeView from "@/views/HomeView.vue";
@@ -90,8 +94,13 @@ const routes = [
 	{ path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundView },
 ];
 
+// 히스토리 모드로  배포시 서버에 추가 설정이 필요함.
+// 해시 없이 실제 URL처럼 보이게 하지만, 서버는 해당 경로에 실제 파일이 없으면 404를 반환합니다. SPA의 `index.html`을 항상 반환하도록 설정해야 합니다.
+
+// 해시 모드로 배포시 서버 설정이 필요없음. 치명적인 단점은 URL에 #이 붙음
 const router = createRouter({
-	history: createWebHistory("/"),
+	// history: createWebHistory(), // 히스토리 모드
+	history: createWebHashHistory(), // 해시 모드 사용
 	routes,
 });
 

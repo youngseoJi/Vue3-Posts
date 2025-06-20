@@ -11,6 +11,13 @@
 						class="form-control"
 					/> -->
 				</div>
+				<div class="col-3">
+					<select v-model="params._limit" class="form-select">
+						<option value="3">3개 보기</option>
+						<option value="6">6개 보기</option>
+						<option value="9">9개 보기</option>
+					</select>
+				</div>
 			</div>
 		</form>
 		<hr class="my-4" />

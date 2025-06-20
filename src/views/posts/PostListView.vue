@@ -2,6 +2,18 @@
 	<div>
 		<h2>게시글 목록</h2>
 		<hr class="my-4" />
+		<form @submit.prevent>
+			<div class="row g-3">
+				<div class="col">
+					<!-- <input
+						v-model="params._title_like"
+						type="text"
+						class="form-control"
+					/> -->
+				</div>
+			</div>
+		</form>
+		<hr class="my-4" />
 		<!-- list : row 가로 정렬 -->
 		<div class="row g-3">
 			<div v-for="post in posts" :key="post.id" class="col-4">
@@ -15,7 +27,7 @@
 		</div>
 		<!-- list -->
 
-		<!-- 페이지 네이션 -->
+		<!-- 페이지네이션 -->
 		<nav
 			class="mt-4 d-flex justify-content-center"
 			aria-label="Page navigation example"
@@ -76,6 +88,7 @@ const params = ref({
 	_order: "desc",
 	_page: 1,
 	_limit: 3,
+	// _title_like: "",
 });
 
 // 페이지네이션 데이터
@@ -87,7 +100,8 @@ const pageCount = computed(() =>
 const fetchPosts = async () => {
 	try {
 		const { data, headers } = await getPosts(params.value);
-		// console.log("params.value", params.value);
+		console.log("params.value", params.value);
+		console.log("결과:", data);
 		posts.value = data;
 		// console.log("posts.value", posts.value);
 		totalCount.value = headers["x-total-count"];

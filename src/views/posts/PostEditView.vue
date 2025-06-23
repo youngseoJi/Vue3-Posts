@@ -48,6 +48,7 @@ const id = route.params.id;
 const form = ref({
 	title: "",
 	content: "",
+	createAt: "",
 });
 
 // 특정 게시글 가져오기
@@ -59,9 +60,10 @@ const fetchPost = async () => {
 
 // 게시글 수정
 // 게시글 데이터를 구조 분해하여 상태 객체에 개별 할당
-const setForm = ({ title, content }) => {
+const setForm = ({ title, content, createAt }) => {
 	form.value.title = title;
 	form.value.content = content;
+	form.value.createAt = createAt;
 };
 
 // 게시글 수정

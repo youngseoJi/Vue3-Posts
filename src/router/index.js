@@ -51,14 +51,14 @@ const routes = [
 		// 1. props: true
 		// route.params가 그대로 props로 전달됨
 		// 항상 문자열(string)로 전달됨 (타입 변환 불가)
-		// props: true,
+		props: true,
 
 		// 2. props: route => ({ ... })  객체 형태로 설정
 		// 가공한 값(예: 숫자형으로 변환된 id)을 props로 전달 가능
-		props: route => ({
-			// 문자열 형태로 전달되므로 숫자형으로 변환
-			id: parseInt(route.params.id),
-		}),
+		// props: route => ({
+		// 문자열 형태로 전달되므로 숫자형으로 변환
+		// id: parseInt(route.params.id),
+		// }),
 	},
 	{
 		path: "/posts/:id/edit",

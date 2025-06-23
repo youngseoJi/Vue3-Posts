@@ -1,6 +1,5 @@
-import axios from "axios";
-
-// axios
+import { posts } from ".";
+// from "." : 현재 디렉토리에서 index.js 파일을 가져옴
 
 // 이제 따로 json-server를 실행하기에 주석처리
 // const posts = [
@@ -13,7 +12,7 @@ import axios from "axios";
 
 // 게시물 목록
 export function getPosts(params) {
-	return axios.get("http://localhost:5000/posts", { params });
+	return posts.get("", { params });
 }
 
 // 게시물 조회 id
@@ -21,20 +20,20 @@ export function getPostById(id) {
 	//  const postId = parseInt(id); // 1차
 	// 	return posts.find(post => post.id === postId);
 	// return posts.find(post => post.id === id); // 2차
-	return axios.get(`http://localhost:5000/posts/${id}`);
+	return posts.get(id);
 }
 
 // 게시물 생성
 export function createPost(post) {
-	return axios.post("http://localhost:5000/posts", post);
+	return posts.post("", post);
 }
 
 // 게시물 수정
 export function updatePost(id, post) {
-	return axios.put(`http://localhost:5000/posts/${id}`, post);
+	return posts.put(id, post);
 }
 
 // 게시물 삭제
 export function deletePost(id) {
-	return axios.delete(`http://localhost:5000/posts/${id}`);
+	return posts.delete(id);
 }
